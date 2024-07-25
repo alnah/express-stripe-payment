@@ -3,6 +3,7 @@ require("express-async-errors");
 const express = require("express");
 
 const { errorHandler, routeNotFound } = require("./middlewares");
+const { stripeController } = require("./controllers")
 
 // express server
 const app = express();
@@ -10,7 +11,12 @@ const port = process.env.PORT || 3000;
 
 // parser
 app.use(express.json());
+
+// service static files from the public directory
 app.use(express.static("./public"));
+
+// stripe
+app.post("/stripe", stripeController);
 
 // error handling
 app.use(routeNotFound);
