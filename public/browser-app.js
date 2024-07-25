@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const purchase = [
   { id: "1", name: "t-shirt", price: 1999 },
   { id: "2", name: "shoes", price: 4999 },
